@@ -1,25 +1,59 @@
 package main;
 
 public class Elipse extends FormaGeometrica {
-    public Elipse() {}
+    final Ponto centro;
+    final double semiEixoA;
+    final double semiEixoB;
 
-    @Override
-    double largura() {
-        return 0;
+    public Elipse(Ponto centro, double semiEixoA, double semiEixoB) {
+        this.centro = centro;
+        this.semiEixoA = semiEixoA;
+        this.semiEixoB = semiEixoB;
+    }
+
+    public Ponto getCentro() {
+        return this.centro;
+    }
+
+    public double getSemiEixoA() {
+        return this.semiEixoA;
+    }
+
+    public double getSemiEixoB() {
+        return this.semiEixoB;
+    }
+
+    public double getSemiEixoMenor() {
+        return Math.min(getSemiEixoA(), getSemiEixoB());
+    }
+
+    public double getSemiEixoMaior() {
+        return Math.max(getSemiEixoA(), getSemiEixoB());
+    }
+
+    public double circunferencia() {
+        double a = getSemiEixoMaior();
+        double b = getSemiEixoMenor();
+        return 2 * Math.PI * Math.sqrt((a * a + b * b) / 2);
     }
 
     @Override
-    double altura() {
-        return 0;
+    public double largura() {
+        return 2 * getSemiEixoMaior();
     }
 
     @Override
-    double area() {
-        return 0;
+    public double altura() {
+        return 2 * getSemiEixoMenor();
     }
 
     @Override
-    double perimetro() {
-        return 0;
+    public double area() {
+        return Math.PI * getSemiEixoMaior() * getSemiEixoMenor();
+    }
+
+    @Override
+    public double perimetro() {
+        return circunferencia();
     }
 }
