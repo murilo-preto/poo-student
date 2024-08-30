@@ -9,6 +9,10 @@ public class Elipse extends FormaGeometrica {
         this.centro = centro;
         this.semiEixoA = semiEixoA;
         this.semiEixoB = semiEixoB;
+        
+        if (semiEixoA<0 || semiEixoB<0) {
+            throw new IllegalArgumentException("Circulo deve apresentar raio positivo");
+        }
     }
 
     public Ponto getCentro() {

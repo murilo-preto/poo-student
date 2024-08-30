@@ -10,8 +10,13 @@ public class Retangulo extends Paralelogramo {
         this.p3 = pontos[2];
         this.p4 = pontos[3];
     }
+    
+    public Retangulo(Ponto p1, Ponto p2, Ponto p3, Ponto p4) {
+        this(new Ponto[]{p1, p2, p3, p4});
+    }
 
-    boolean quadrado() {
+
+    public boolean quadrado() {
         SegmentoReta retaSuperior = new SegmentoReta(p1, p2);
         SegmentoReta retaInferior = new SegmentoReta(p4, p3);
         SegmentoReta retaEsquerda = new SegmentoReta(p1, p4);
@@ -26,7 +31,7 @@ public class Retangulo extends Paralelogramo {
     }
 
 
-    static boolean existe(Ponto p1, Ponto p2, Ponto p3, Ponto p4) {
+    public static boolean existe(Ponto p1, Ponto p2, Ponto p3, Ponto p4) {
         boolean angSup, angInf, angDir, angEsq;
         SegmentoReta retaSuperior = new SegmentoReta(p1, p2);
         SegmentoReta retaInferior = new SegmentoReta(p4, p3);

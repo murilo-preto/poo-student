@@ -7,6 +7,10 @@ public class SemiCirculo extends FormaGeometrica {
     public SemiCirculo(Ponto centro, double raio) {
         this.centro = centro;
         this.raio = raio;
+        
+        if (raio<0) {
+            throw new IllegalArgumentException("Circulo deve apresentar raio positivo");
+        }
     }
 
     public Ponto getCentro() {
@@ -18,22 +22,22 @@ public class SemiCirculo extends FormaGeometrica {
     }
 
     @Override
-    double largura() {
+    public double largura() {
         return 2 * getRaio();
     }
 
     @Override
-    double altura() {
+    public double altura() {
         return getRaio();
     }
 
     @Override
-    double area() {
+    public double area() {
         return Math.PI * getRaio() * getRaio() / 2;
     }
 
     @Override
-    double perimetro() {
+    public double perimetro() {
         return Math.PI * getRaio();
     }
 }

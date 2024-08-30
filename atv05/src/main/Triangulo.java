@@ -9,6 +9,10 @@ public class Triangulo extends Poligono {
         this.p2 = pontos[1];
         this.p3 = pontos[2];
     }
+    
+    public Triangulo(Ponto p1, Ponto p2, Ponto p3) {
+        this(new Ponto[]{p1, p2, p3});
+    }
 
     public Ponto getP1() {
         return p1;
